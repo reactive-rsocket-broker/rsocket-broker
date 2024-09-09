@@ -49,7 +49,7 @@
         <avro.version>1.12.0</avro.version>
         <eclipse-collections.version>11.1.0</eclipse-collections.version>
         <spring-cloud-release.version>2021.0.9</spring-cloud-release.version>
-        <cloudevents-sdk.version>3.0.0</cloudevents-sdk.version>
+        <cloudevents-sdk.version>4.0.1</cloudevents-sdk.version>
         <zipkin-brave.version>5.18.1</zipkin-brave.version>
         <junit5.version>5.11.0</junit5.version>
         <timestamp>${maven.build.timestamp}</timestamp>
