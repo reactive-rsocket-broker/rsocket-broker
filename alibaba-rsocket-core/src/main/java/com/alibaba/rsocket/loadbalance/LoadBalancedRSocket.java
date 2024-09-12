@@ -138,10 +138,11 @@ public class LoadBalancedRSocket extends AbstractRSocket implements CloudEventRS
                         return connect(rsocketUri)
                                 //health check after connection
                                 .flatMap(rsocket -> healthCheck(rsocket, rsocketUri).map(payload -> Tuples.of(rsocketUri, rsocket)))
-                                .doOnError(error -> {
+                                .onErrorResume(error -> {
                                     log.error(RsocketErrorCode.message("RST-400500", rsocketUri), error);
                                     this.unHealthyUriSet.add(rsocketUri);
                                     tryToReconnect(rsocketUri, error);
+                                    return Mono.empty();
                                 });
                     }
                 })
